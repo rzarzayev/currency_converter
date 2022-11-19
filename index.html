@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Currency-Converter</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <nav>
-      <div id="navbar">
-        <img src="Frame.svg" />
-        <ul id="list">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Currency-Converter</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <nav>
+    <div id="navbar">
+      <div class="img"><img src="Frame.svg" /></div>
+      <div id="list">
+        <ul>
           <li><a href="#">Bank</a></li>
           <li><a href="#">Biznes</a></li>
           <li><a href="#">İnvestisiya</a></li>
@@ -20,9 +23,35 @@
           <li><a href="#">Səyahət</a></li>
           <li><a href="#">Əyləncə</a></li>
         </ul>
-        <button>Daxil Ol</button>
       </div>
-    </nav>
-    <script src="app.js"></script>
-  </body>
+      <button>Daxil Ol</button>
+    </div>
+  </nav>
+  <main>
+    <div class="main">
+      <h1>Onlayn valyuta çeviricisi</h1>
+    </div>
+    <div class="box">
+      <div class="box1">
+        <p>Valyutam</p>
+        <button>RUB</button>
+        <button>USD</button>
+        <button>EUR</button>
+        <button>GBP</button> <br>
+        <input type="text">
+      </div>
+      <div class="box2">
+        <p>Çevirmək istədiyim valyuta</p>
+        <button>RUB</button>
+        <button>USD</button>
+        <button>EUR</button>
+        <button>GBP</button> <br>
+        <input type="text">
+      </div>
+    </div>
+
+  </main>
+  <script src="app.js"></script>
+</body>
+
 </html>
