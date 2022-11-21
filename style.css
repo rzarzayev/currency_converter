@@ -71,9 +71,9 @@ ul li:first-child a{
     padding: 10px 30px;
     border-radius: 3px;
 }
-.box button:nth-child(2){
-    background-color: #833AE0;
-    color: white;
+.activeButton{
+    background-color: #833AE0 !important;
+    color: white important;
 }
 input{
     margin-top: 30px;
