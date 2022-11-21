@@ -83,3 +83,19 @@ input{
     padding: 15px 0px 100px 20px;
     font-size: 35px;
 }
+
+.change-box {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    text-align: center;
+    color: #ddd;
+    margin-top: -50px;
+  }
+  
+  .fa-retweet {
+    font-size: 1.6em;
+    transition: 0.4s;
+    cursor: pointer;
+  }
