@@ -61,11 +61,12 @@ function onChangeCurrency(event,whichSide,currency){
         .then((res) => res.json())
         .then((data) => {
             console.log(data);
-            const v1 = curInput1.value
-            const mezenne = data.
+            const value2=data.rates
+            const v1 = box2.value
+            const mezenne = data.rates.value2
             curInput2.value = v1*mezenne
         });
-        [...leftButtons].forEach((button) => {
+        [...rightButtons].forEach((button) => {
             button.classList.remove('activeButton')
             
         })
