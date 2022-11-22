@@ -63,7 +63,7 @@ function onChangeCurrency(event,whichSide,currency){
             console.log(data);
             
             const v1 = box2.value
-            const mezenne = data.rates
+            const mezenne = data.rates[]
             curInput2.value = v1*mezenne
         });
         [...rightButtons].forEach((button) => {
