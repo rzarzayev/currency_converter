@@ -46,7 +46,7 @@ const changeBtn = document.querySelector(".fa-retweet");
 
 const url = 'https://api.exchangerate.host/latest?'
 let leftSideBaseCurrency = ''
-
+curInput1.addEventListener('keyd')
 function onChangeCurrency(event,whichSide,currency){
     
     if(whichSide === 'left'){
@@ -72,5 +72,6 @@ function onChangeCurrency(event,whichSide,currency){
         })
         }
         event.target.classList.add('activeButton')
+        
     console.log(whichSide,currency)
 }
