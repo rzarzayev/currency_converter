@@ -9,35 +9,35 @@ const rightButtons = document.querySelectorAll(".box2 button");
 const rateBox = document.querySelector(".rate-box");
 const changeBtn = document.querySelector(".fa-retweet");
 
-function calc() {
-  const curItem1Value = box1.value;
-  const curItem2Value = box2.value;
+// function calc() {
+//   const curItem1Value = box1.value;
+//   const curItem2Value = box2.value;
 
-  fetch(`https://api.exchangerate.host/${curItem1Value}`)
-    .then((res) => res.json())
-    .then((data) => {
-      const rate = data.rates[curItem2Value];
+//   fetch(`https://api.exchangerate.host/${curItem1Value}`)
+//     .then((res) => res.json())
+//     .then((data) => {
+//       const rate = data.rates[curItem2Value];
 
-      rateBox.textContent = `1 ${curItem1Value} = ${rate.toFixed(
-        4
-      )} ${curItem2Value}`;
+//       rateBox.textContent = `1 ${curItem1Value} = ${rate.toFixed(
+//         4
+//       )} ${curItem2Value}`;
 
-      curInput2.value = (curInput1.value * rate).toFixed(2);
-    });
-}
+//       curInput2.value = (curInput1.value * rate).toFixed(2);
+//     });
+// }
 
-function listeners() {
-  box1.addEventListener("change", calc);
-  box2.addEventListener("change", calc);
-  curInput1.addEventListener("input", calc);
-  curInput2.addEventListener("input", calc);
+// function listeners() {
+//   box1.addEventListener("change", calc);
+//   box2.addEventListener("change", calc);
+//   curInput1.addEventListener("input", calc);
+//   curInput2.addEventListener("input", calc);
 
-  changeBtn.addEventListener("click", () => {
-    [box1.value, box2.value] = [box1.value, box2.value];
-    calc();
-    changeBtn.classList.toggle("rotate-btn");
-  });
-}
+//   changeBtn.addEventListener("click", () => {
+//     [box1.value, box2.value] = [box1.value, box2.value];
+//     calc();
+//     changeBtn.classList.toggle("rotate-btn");
+//   });
+// }
 
 // window.onload = () => {
 //   listeners();
@@ -62,8 +62,8 @@ function onChangeCurrency(event,whichSide,currency){
         .then((data) => {
             console.log(data);
             
-            const v1 = box2.value
-            const mezenne = data.rates[]
+            const v1 = curInput1.value
+            const mezenne = data.rates[currency]
             curInput2.value = v1*mezenne
         });
         [...rightButtons].forEach((button) => {
