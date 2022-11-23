@@ -4,6 +4,8 @@ const curInput1 = document.querySelector(".cur-input-1");
 const curInput2 = document.querySelector(".cur-input-2");
 const leftButtons = document.querySelectorAll(".box1 button");
 const rightButtons = document.querySelectorAll(".box2 button");
+const rightratebox = document.getElementById('rightratebox');
+const leftratebox = document.getElementById('leftratebox');
 
 
 const rateBox = document.querySelector(".rate-box");
@@ -46,32 +48,49 @@ const changeBtn = document.querySelector(".fa-retweet");
 
 const url = 'https://api.exchangerate.host/latest?'
 let leftSideBaseCurrency = ''
-curInput1.addEventListener('keyd')
-function onChangeCurrency(event,whichSide,currency){
-    
-    if(whichSide === 'left'){
+
+function onChangeCurrency(event, whichSide, currency) {
+
+    if (whichSide === 'left') {
         leftSideBaseCurrency = currency;
-    [...leftButtons].forEach((button) => {
-        button.classList.remove('activeButton')
-        
-    })
+        [...leftButtons].forEach((button) => {
+            button.classList.remove('activeButton')
+        })
+        const activeRightElement = [...rightButtons].find((elem) => elem.classList.contains('activeButton'))
+        if (activeRightElement) {
+            fetch(`${url}base=${leftSideBaseCurrency}&symbols=${activeRightElement.textContent}`)
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log(data);
+                    const v1 = curInput1.value
+                    const mezenne = data.rates[activeRightElement.textContent]
+                    curInput2.value = v1 * mezenne
+                    leftratebox.textContent = `1 ${leftSideBaseCurrency}`
+                    rightratebox.textContent = `${curInput2.value} ${activeRightElement.textContent}`
+                });
+        }
     }
-    if(whichSide === 'right'){
+    if (whichSide === 'right') {
         fetch(`${url}base=${leftSideBaseCurrency}&symbols=${currency}`)
-        .then((res) => res.json())
-        .then((data) => {
-            console.log(data);
-            
-            const v1 = curInput1.value
-            const mezenne = data.rates[currency]
-            curInput2.value = v1*mezenne
-        });
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                const v1 = curInput1.value
+                const mezenne = data.rates[currency]
+                curInput2.value = v1 * mezenne
+                leftratebox.textContent = `1 ${leftSideBaseCurrency}`
+                rightratebox.textContent = `${v1} ${leftSideBaseCurrency} = ${amountFormatter(curInput2.value)} ${currency}`
+
+            });
         [...rightButtons].forEach((button) => {
             button.classList.remove('activeButton')
-            
         })
-        }
-        event.target.classList.add('activeButton')
-        
-    console.log(whichSide,currency)
+    }
+    event.target.classList.add('activeButton')
+
+    console.log(whichSide, currency)
+}
+
+function amountFormatter(txt) {
+    return txt.slice(0, txt.indexOf('.') + 3)
 }
